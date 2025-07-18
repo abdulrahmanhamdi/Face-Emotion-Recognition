@@ -6,36 +6,29 @@ This project showcases a deep learning pipeline for **facial emotion recognition
 
 ## 🧪 Technologies Used
 
-- **PyTorch** – Deep learning framework
-- **Python 3.11** – Programming language
-- **Torchvision** – Image transformations and dataset management
-- **Matplotlib & Seaborn** – Data and result visualization
-- **Google Colab** – GPU-based training environment
-- **KaggleHub** – Automated dataset downloading from Kaggle
+- **PyTorch** – Deep learning framework  
+- **Python 3.11** – Programming language  
+- **Torchvision** – Image transformations and dataset management  
+- **Matplotlib & Seaborn** – Data and result visualization  
+- **Google Colab** – GPU-based training environment  
+- **KaggleHub** – Automated dataset downloading from Kaggle  
 
 ---
 
 ## 📁 Dataset Overview
 
-- **Name**: [FER-2013 Facial Expression Dataset](https://www.kaggle.com/datasets/msambare/fer2013)
-- **Author**: Manas Sambare
-- **Image Size**: 48×48 grayscale
-- **Classes**:
-  - Angry
-  - Disgust
-  - Fear
-  - Happy
-  - Sad
-  - Surprise
-  - Neutral
+- **Name**: [FER-2013 Facial Expression Dataset](https://www.kaggle.com/datasets/msambare/fer2013)  
+- **Author**: Manas Sambare  
+- **Image Size**: 48×48 grayscale  
+- **Classes**: Angry, Disgust, Fear, Happy, Sad, Surprise, Neutral
 
 ### 📊 Class Distribution
 
-**Training Set**\
+**Training Set**  
+![Training Distribution](./train_distribution.png)
 
-
-**Test Set**\
-
+**Test Set**  
+![Test Distribution](./test_distribution.png)
 
 > ⚠️ Class imbalance is significant, with "Happy" dominating the dataset and "Disgust" severely underrepresented.
 
@@ -43,33 +36,27 @@ This project showcases a deep learning pipeline for **facial emotion recognition
 
 ## 🧠 Model Architecture
 
-- **Input Size**: 48×48 grayscale images
-- **Model Type**: Custom CNN (Convolutional Neural Network)
-- **Layers**:
-  - Conv + ReLU + MaxPooling
-  - Dropout regularization
-  - Fully Connected layers
-- **Output Layer**: 7-class Softmax
-- **Loss Function**: CrossEntropyLoss
-- **Optimizer**: Adam
-- **Epochs**: 30
-- **Train/Validation Split**: 80/20
+- **Input Size**: 48×48 grayscale images  
+- **Model Type**: Custom CNN (Convolutional Neural Network)  
+- **Layers**: Conv + ReLU + MaxPooling → Dropout → Fully Connected  
+- **Output Layer**: 7-class Softmax  
+- **Loss Function**: CrossEntropyLoss  
+- **Optimizer**: Adam  
+- **Epochs**: 30  
+- **Train/Validation Split**: 80/20  
 
 ---
 
 ## 📈 Training Results
 
-### 👀 Sample Images by Class
+### 👀 Sample Images by Class  
+![Sample Faces](./sample_faces.png)
 
+### 📉 Loss Curve  
+![Loss Curve](./loss_curve.png)
 
-
-### 📉 Loss Curve
-
-
-
-### 📈 Accuracy Curve
-
-
+### 📈 Accuracy Curve  
+![Accuracy Curve](./accuracy_curve.png)
 
 > The model improves steadily, but overfitting starts to emerge after epoch 20 due to limited training.
 
@@ -77,19 +64,17 @@ This project showcases a deep learning pipeline for **facial emotion recognition
 
 ## 🧪 Evaluation
 
-### Confusion Matrix (Train)
+### Confusion Matrix (Train)  
+![Confusion Matrix](./confusion_matrix.png)
 
-
-
-- ✅ Good accuracy for "Happy"
-- ❌ Struggles with minority class "Disgust"
+- ✅ Good accuracy for "Happy"  
+- ❌ Struggles with minority class "Disgust"  
 - ❓ Misclassifications occur mainly between **Fear/Sad** and **Neutral/Angry**
 
-### Prediction Samples
+### Prediction Samples  
+![Prediction Samples](./prediction_samples.png)
 
-
-
-> Green = Correct prediction\
+> Green = Correct prediction  
 > Red = Incorrect prediction
 
 ---
@@ -141,18 +126,22 @@ emotion = prediction.argmax(dim=1).item()
 
 ## ⚠️ Limitations
 
-- Only 30 epochs were used due to time and resource constraints
-- "Disgust" class is severely underrepresented
+- Only 30 epochs were used due to time and resource constraints  
+- "Disgust" class is severely underrepresented  
 - Accuracy can improve significantly with:
-  - Extended training (≥ 200 epochs)
-  - Balanced dataset or weighted loss
-  - More advanced CNN architectures
+  - Extended training (≥ 200 epochs)  
+  - Balanced dataset or weighted loss  
+  - More advanced CNN architectures  
 
 ---
 
 ## 🔮 Future Work
 
--
+- [ ] Train for 200+ epochs  
+- [ ] Replace custom CNN with ResNet-18 or MobileNetV3  
+- [ ] Apply class rebalancing or oversampling  
+- [ ] Add real-time webcam prediction  
+- [ ] Export model to ONNX or TFLite for deployment  
 
 ---
 
@@ -164,9 +153,6 @@ emotion = prediction.argmax(dim=1).item()
 
 ## 🔗 Related Resources
 
-- [PyTorch Docs](https://pytorch.org/docs/stable/index.html)
-- [FER-2013 Dataset on Kaggle](https://www.kaggle.com/datasets/msambare/fer2013)
+- [PyTorch Docs](https://pytorch.org/docs/stable/index.html)  
+- [FER-2013 Dataset on Kaggle](https://www.kaggle.com/datasets/msambare/fer2013)  
 - [Facial Expression Recognition Challenge (ICML 2013)](https://www.kaggle.com/competitions/challenges-in-representation-learning-facial-expression-recognition-challenge)
-
-```
-```
